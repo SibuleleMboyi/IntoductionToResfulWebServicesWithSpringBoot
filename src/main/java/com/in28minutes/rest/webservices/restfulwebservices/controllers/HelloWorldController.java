@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.in28minutes.rest.webservices.restfulwebservices.controllers.models.HelloWorldBean;
+import com.in28minutes.rest.webservices.restfulwebservices.models.HelloWorldBean;
 
 @RestController
 public class HelloWorldController {
