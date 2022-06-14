@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.in28minutes.rest.webservices.restfulwebservices.models.User;
 
-@Component
-public class UserDaoService {
+// This annotation is used to indicate that the class provides the mechanism for storage,
+// retrieval, update, delete and search operation on objects.
+@Repository
+public class UserRepository {
     private static List<User> users = new ArrayList<>();
     public static int userCount = 3;
 
