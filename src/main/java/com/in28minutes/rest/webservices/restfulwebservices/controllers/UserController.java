@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.in28minutes.rest.webservices.restfulwebservices.exceptions.UserNotFoundException;
 import com.in28minutes.rest.webservices.restfulwebservices.models.User;
 import com.in28minutes.rest.webservices.restfulwebservices.repositories.UserRepository;
 
@@ -28,7 +29,13 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable int id) {
-        return userRepository.getUser(id);
+        User user = userRepository.getUser(id);
+
+        System.out.println(user);
+        if (user.equals(User.emptyUser())) {
+            throw new UserNotFoundException("id : " + id);
+        }
+        return user;
     }
 
     // To set the status , URI of the created User and other

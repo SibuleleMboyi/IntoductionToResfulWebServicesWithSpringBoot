@@ -43,7 +43,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User [id : %s, name : %s,  birthDate : %s ]", id, name, birthDate);
+        return String.format("User [id : %s, name : %s, birthDate : %s ]", id, name, birthDate);
     }
 
     // my customization of an empty User
@@ -51,4 +51,15 @@ public class User {
         return new User(null, null, null);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == User.emptyUser() || this.getClass() != obj.getClass())
+            return false;
+
+        User user = (User) obj;
+
+        return this.id.equals(user.id) && this.name.equals(user.name) && this.birthDate.equals(user.birthDate);
+    }
 }
