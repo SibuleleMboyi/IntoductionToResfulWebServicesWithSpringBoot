@@ -25,10 +25,11 @@ public class UserRepository {
         return users;
     }
 
-    public User save(User user) {
+    public User saveUser(User user) {
         if (user.getId() == null) {
             user.setId(++userCount);
         }
+        user.setbirthDate(new Date());
         users.add(user);
         return user;
     }

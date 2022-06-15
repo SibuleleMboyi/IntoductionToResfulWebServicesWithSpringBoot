@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class User {
 
+    protected User() {
+    }
+
     public User(Integer id, String name, Date birthDate) {
         this.id = id;
         this.name = name;
