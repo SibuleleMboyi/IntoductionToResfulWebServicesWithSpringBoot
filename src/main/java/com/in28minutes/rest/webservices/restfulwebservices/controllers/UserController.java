@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,5 +52,18 @@ public class UserController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(createdUser.getId()).toUri();
         return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id) {
+        User user = userRepository.deleteUser(id);
+
+        System.out.println("user :::::::::::::::::::::::::::::");
+
+        if (user.equals(User.emptyUser())) {
+            System.out.println(user);
+
+            throw new UserNotFoundException("id : " + id);
+        }
     }
 }
