@@ -2,8 +2,10 @@ package com.in28minutes.rest.webservices.restfulwebservices.exceptions;
 
 import java.util.Date;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,20 +18,38 @@ import com.in28minutes.rest.webservices.restfulwebservices.models.ExceptionRespo
 @RestController
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    protected ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
-        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
-                request.getDescription(false));
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        @ExceptionHandler(Exception.class)
+        protected ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
+                ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
+                                request.getDescription(false));
+                return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 
-    }
+        }
 
-    @ExceptionHandler(UserNotFoundException.class)
-    protected ResponseEntity<Object> handleUserNotFoundException(Exception ex, WebRequest request) {
-        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
-                request.getDescription(false));
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+        @ExceptionHandler(UserNotFoundException.class)
+        protected ResponseEntity<Object> handleUserNotFoundException(Exception ex, WebRequest request) {
+                ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
+                                request.getDescription(false));
+                return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
 
-    }
+        }
+
+        @Override
+        protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+                        HttpHeaders headers, HttpStatus status, WebRequest request) {
+
+                /*
+                 * ex.getBindingResult(), gives a consumer or User the details of what has gone
+                 * wrong
+                 * To avoid customizing error message, replace "Validation Failed" with
+                 * ex.getMessage() with the string of your
+                 * type
+                 */
+
+                ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "Validation Failed",
+                                ex.getBindingResult().toString());
+
+                return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+        }
 
 }

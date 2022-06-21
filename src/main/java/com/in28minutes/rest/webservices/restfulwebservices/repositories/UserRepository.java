@@ -30,7 +30,10 @@ public class UserRepository {
         if (user.getId() == null) {
             user.setId(++userCount);
         }
-        user.setbirthDate(new Date());
+        if (user.getBirthDate() == null) {
+            user.setbirthDate(new Date());
+        }
+
         users.add(user);
         return user;
     }

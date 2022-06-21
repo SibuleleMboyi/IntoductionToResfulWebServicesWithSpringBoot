@@ -2,7 +2,18 @@ package com.in28minutes.rest.webservices.restfulwebservices.models;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class User {
+
+    private Integer id;
+
+    @Size(min = 2, message = "Name should have at least 2 characters")
+    private String name;
+
+    @Past
+    private Date birthDate;
 
     protected User() {
     }
@@ -12,10 +23,6 @@ public class User {
         this.name = name;
         this.birthDate = birthDate;
     }
-
-    private Integer id;
-    private String name;
-    private Date birthDate;
 
     public Integer getId() {
         return id;
