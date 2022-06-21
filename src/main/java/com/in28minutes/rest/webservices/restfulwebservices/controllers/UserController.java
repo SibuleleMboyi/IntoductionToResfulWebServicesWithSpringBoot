@@ -6,6 +6,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,19 +28,26 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/users")
-    public List<User> getUser() {
+    public List<User> getUsers() {
         return userRepository.getUsers();
     }
 
+    // Addition of Hateoas
     @GetMapping("/users/{id}")
-    public User getUser(@PathVariable int id) {
+    public EntityModel<User> getUser(@PathVariable int id) {
         User user = userRepository.getUser(id);
 
         System.out.println(user);
         if (user.equals(User.emptyUser())) {
             throw new UserNotFoundException("id : " + id);
         }
-        return user;
+
+        EntityModel<User> model = EntityModel.of(user);
+        WebMvcLinkBuilder linkToUsers = WebMvcLinkBuilder
+                .linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getUsers());
+
+        model.add(linkToUsers.withRel("all-users"));
+        return model;
     }
 
     // To set the status , URI of the created User and other
