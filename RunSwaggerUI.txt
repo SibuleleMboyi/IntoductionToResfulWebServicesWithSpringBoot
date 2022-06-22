@@ -1,0 +1,6 @@
+When you have a consumer who wants to make use of your RestAPI,
+you can give them the SWAGGER UI so they can explore the API documentation and findout how
+to call our RestAPI.
+
+Run the Application and paste this URL to the Swagger API on the Browser,
+http://localhost:8080/swagger-ui/index.html

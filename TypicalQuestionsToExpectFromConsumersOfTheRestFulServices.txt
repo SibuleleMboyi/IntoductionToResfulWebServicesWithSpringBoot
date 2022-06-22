@@ -1,0 +1,19 @@
+Typical Questions To Expect From Consumers Of The Rest FulServices:-
+
+- What is the URL to use to access the service?
+- What is the format of the request?
+- What is the format of the response?
+- Are there any validations?
+- Should we adhere to any constraints?
+
+So the consumer would want to know how to use the APIs or the services that we are creating.
+
+How to provide that information to your consumers?
+This is where you have to document your RestAPIs.
+
+First Option is to manually document your API using Word or HTML page.
+e.g you would document like this.
+The URL to access all users is this "and you write your URL here".
+And in the response you can get "mention the parameters that may be returned".
+
+Another option is to use Swagger.

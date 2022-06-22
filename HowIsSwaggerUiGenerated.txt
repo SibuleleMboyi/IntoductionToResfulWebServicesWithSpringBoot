@@ -1,0 +1,12 @@
+Swagger UI is documented from the OpenAPI documentation that is generated from our code.
+OpenAPI documentation was initially called Swagger Specification.
+
+- To find the OpenAPI documentation for our code:-
+  - Run the Application and paste this URL to the Swagger API on the Browser,
+  http://localhost:8080/swagger-ui/index.html
+
+- The Link below the "OpenAPI definition" title on the returned HTML page is the link to the
+  OpenAPI documentation.
+- In the case of this Application, 
+  the link to our OpenAPI documentation is http://localhost:8080/v3/api-docs
+- Click it.
