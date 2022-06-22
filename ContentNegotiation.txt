@@ -1,0 +1,8 @@
+
+* Content Negetiation is named this way because there is negotionation happening 
+between the Consumer and the provider of the service (Server).
+
+- Add "jackson-dataformat-xml" dependency in pom.xml
+- Go to "Thunder Client", paste the URL for the end point.
+- Select "Hearders", in the value of  "Accept", type "application/xml".
+- Send a GET request.
