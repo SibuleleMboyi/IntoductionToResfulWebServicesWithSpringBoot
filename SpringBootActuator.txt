@@ -1,0 +1,5 @@
+- Spring Boot Actuator comes with features to help you to monitor and manage 
+  your application when you push it to production.
+- You can choose to monitor your application by using HTTP endpoints or with JMX.
+- paste this URL on the Browser:-
+  http://localhost:8080/actuator
