@@ -1,1 +1,3 @@
-With static filtering, we can configure filtering directly in the model(or a Bean)
+- With static filtering, we can configure filtering directly in the model(or a Bean).
+- Mostly prefered one as it helps to avoid inconsistency and having to do lots
+  of changes when variables are changed.
