@@ -1,0 +1,11 @@
+HAL Explorer helps you to explore the APIs in an easy way.
+
+- Configure "Actuator" before using this feauture
+- Access Actuator by this URL:-
+   http://localhost:8080/actuator
+
+- Access HAL Explorer by this URL:-
+   http://localhost:8080/
+
+- In the Search box ( "Edit Headers"), type "/actuator" and search.
+- This provides what actuator gives us, in a more visual manner.
