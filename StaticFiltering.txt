@@ -1,0 +1,1 @@
+With static filtering, we can configure filtering directly in the model(or a Bean)
