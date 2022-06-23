@@ -1,0 +1,2 @@
+* With dynamic filtering, we cannot configure filtering directly in the model(or a Bean).
+- We configure filtering when we are retrieving values.

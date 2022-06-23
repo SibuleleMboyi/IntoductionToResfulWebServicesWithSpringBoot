@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 // The type of filtering used here is called STATIC FILTERING.
 // It is because it cannot be changed at Run time.
 // It's not so preffered as changing variable names affect the hardcoded values inside this filter.
-// Filtering is done at a Class Level
+// Filtering is done at the Class Level
 @JsonIgnoreProperties(value = { "field1", "field2" })
 @SuppressWarnings("unused")
 public class SomeBean2 extends BaseSomeBean {

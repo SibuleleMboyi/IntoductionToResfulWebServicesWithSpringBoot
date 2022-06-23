@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 // It is because it cannot be changed at Run time.
 // Mostly prefered one as it helps to avoids inconsistency and having to do lots
 // of changes when variables are changed.
-// Filtering is done at a Field Level
+// Filtering is done at the Field Level
 public class SomeBean1 extends BaseSomeBean {
 
     @JsonIgnore
