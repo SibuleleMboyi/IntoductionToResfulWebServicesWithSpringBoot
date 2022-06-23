@@ -31,9 +31,9 @@ public class FilteringController {
     @GetMapping("/filtering-list")
     public List<Object> retrieveListOfSomeBeans() {
         return Arrays.asList(
-                new SomeBean2("value21", "value22", "value23"),
-                new SomeBean1("value11", "value12", "value13"),
-                new SomeBean2("value21", "value22", "value23"));
+                new SomeBean1("value21", "value22", "value23"),
+                new SomeBean2("value11", "value12", "value13"),
+                dynamicFilter(new SomeBean3("value21", "value22", "value23")));
     }
 
     // dynamic filtering
@@ -41,6 +41,10 @@ public class FilteringController {
     public MappingJacksonValue retrieveSomeBeanDynamicFilter() {
         SomeBean3 someBean3 = new SomeBean3("value31", "value32", "value33");
 
+        return dynamicFilter(someBean3);
+    }
+
+    private MappingJacksonValue dynamicFilter(SomeBean3 someBean3) {
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("field1", "field2");
         FilterProvider filters = new SimpleFilterProvider().addFilter("SomeBeanFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(someBean3);
