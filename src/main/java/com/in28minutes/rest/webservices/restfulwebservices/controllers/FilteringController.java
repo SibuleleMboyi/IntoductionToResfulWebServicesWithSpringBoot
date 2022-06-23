@@ -27,14 +27,6 @@ public class FilteringController {
         return new SomeBean1("value11", "value12", "value13");
     }
 
-    // static filtering at both Field Level and Class Level
-    @GetMapping("/filtering-list")
-    public List<Object> retrieveListOfSomeBeans() {
-        return Arrays.asList(
-                new SomeBean1("value21", "value22", "value23"),
-                new SomeBean2("value11", "value12", "value13"));
-    }
-
     // dynamic filtering
     @GetMapping("/filtering-dynamic")
     public MappingJacksonValue retrieveSomeBeanDynamicFilter() {
@@ -44,6 +36,22 @@ public class FilteringController {
         FilterProvider filters = new SimpleFilterProvider().addFilter("SomeBeanFilter", filter);
 
         MappingJacksonValue mapping = new MappingJacksonValue(someBean3);
+        mapping.setFilters(filters);
+
+        return mapping;
+    }
+
+    // dynamic filtering and static filtering ( Field Level and Class Level )
+    @GetMapping("/filtering-list")
+    public MappingJacksonValue retrieveListOfFilteredBeans() {
+        List<Object> list = Arrays.asList(new SomeBean1("value21", "value22", "value23"),
+                new SomeBean2("value11", "value12", "value13"),
+                new SomeBean3("value31", "value32", "value33"));
+
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("field1", "field2");
+        FilterProvider filters = new SimpleFilterProvider().addFilter("SomeBeanFilter", filter);
+
+        MappingJacksonValue mapping = new MappingJacksonValue(list);
         mapping.setFilters(filters);
 
         return mapping;
