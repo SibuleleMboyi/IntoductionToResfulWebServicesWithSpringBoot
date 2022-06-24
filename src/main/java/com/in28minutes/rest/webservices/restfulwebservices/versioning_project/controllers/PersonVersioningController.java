@@ -8,7 +8,8 @@ import com.in28minutes.rest.webservices.restfulwebservices.versioning_project.mo
 @RestController
 public class PersonVersioningController {
 
-    // Produces versioning is also called ACCEPT HEADER VERSIONING
+    // Produces versioning is also called ACCEPT HEADER VERSIONING or
+    // MIME TYPE VERSIONING
 
     // Test these endpoints on the Thunder Client (Postman extention on VC Code)
     // under "Accept", create a key with "application/vnd.company.app-v1+json"
