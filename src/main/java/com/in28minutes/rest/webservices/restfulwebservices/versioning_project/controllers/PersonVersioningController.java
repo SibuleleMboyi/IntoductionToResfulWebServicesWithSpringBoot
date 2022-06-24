@@ -8,14 +8,19 @@ import com.in28minutes.rest.webservices.restfulwebservices.versioning_project.mo
 @RestController
 public class PersonVersioningController {
 
-    // http://localhost:8080/person/param?version=1
-    @GetMapping(value = "/person/param", params = "version=1")
+    // Test these endpoints on the Thunder Client (Postman extention on VC Code)
+    // under "Headers", create a key with "X-API-VERSION" and type the version
+    // number in the
+    // value field.
+
+    // http://localhost:8080/person/header
+    @GetMapping(value = "/person/header", headers = "X-API-VERSION=1")
     public PersonV1 personV1() {
         return new PersonV1("Bob Charlie");
     }
 
-    // http://localhost:8080/person/param?version=2
-    @GetMapping(value = "/person/param", params = "version=2")
+    // http://localhost:8080/person/header
+    @GetMapping(value = "/person/header", headers = "X-API-VERSION=2")
     public PersonV2 personV2() {
         return new PersonV2(new Name("Bob", "Charlie"));
     }
