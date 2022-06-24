@@ -8,19 +8,20 @@ import com.in28minutes.rest.webservices.restfulwebservices.versioning_project.mo
 @RestController
 public class PersonVersioningController {
 
-    // Test these endpoints on the Thunder Client (Postman extention on VC Code)
-    // under "Headers", create a key with "X-API-VERSION" and type the version
-    // number in the
-    // value field.
+    // Produces versioning is also called ACCEPT HEADER VERSIONING
 
-    // http://localhost:8080/person/header
-    @GetMapping(value = "/person/header", headers = "X-API-VERSION=1")
+    // Test these endpoints on the Thunder Client (Postman extention on VC Code)
+    // under "Accept", create a key with "application/vnd.company.app-v1+json"
+    // (with no quotation marks) and type the version number in the value field.
+
+    // http://localhost:8080/person/produces
+    @GetMapping(value = "/person/produces", produces = "application/vnd.company.app-v1+json")
     public PersonV1 personV1() {
         return new PersonV1("Bob Charlie");
     }
 
-    // http://localhost:8080/person/header
-    @GetMapping(value = "/person/header", headers = "X-API-VERSION=2")
+    // http://localhost:8080/person/produces
+    @GetMapping(value = "/person/produces", produces = "application/vnd.company.app-v2+json")
     public PersonV2 personV2() {
         return new PersonV2(new Name("Bob", "Charlie"));
     }
