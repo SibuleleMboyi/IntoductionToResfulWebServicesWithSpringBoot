@@ -8,12 +8,14 @@ import com.in28minutes.rest.webservices.restfulwebservices.versioning_project.mo
 @RestController
 public class PersonVersioningController {
 
-    @GetMapping("/v1/person")
+    // http://localhost:8080/person/param?version=1
+    @GetMapping(value = "/person/param", params = "version=1")
     public PersonV1 personV1() {
         return new PersonV1("Bob Charlie");
     }
 
-    @GetMapping("/v2/person")
+    // http://localhost:8080/person/param?version=2
+    @GetMapping(value = "/person/param", params = "version=2")
     public PersonV2 personV2() {
         return new PersonV2(new Name("Bob", "Charlie"));
     }
