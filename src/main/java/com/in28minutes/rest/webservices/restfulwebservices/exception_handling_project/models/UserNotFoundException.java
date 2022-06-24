@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.exceptions;
+package com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

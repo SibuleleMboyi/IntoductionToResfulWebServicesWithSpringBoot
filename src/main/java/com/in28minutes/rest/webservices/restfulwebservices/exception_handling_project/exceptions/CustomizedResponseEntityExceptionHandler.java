@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.exceptions;
+package com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.exceptions;
 
 import java.util.Date;
 
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.in28minutes.rest.webservices.restfulwebservices.models.ExceptionResponse;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.ExceptionResponse;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.UserNotFoundException;
 
 @ControllerAdvice
 @RestController

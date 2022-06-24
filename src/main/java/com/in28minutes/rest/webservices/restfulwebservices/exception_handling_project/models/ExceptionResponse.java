@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.models;
+package com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models;
 
 import java.util.Date;
 

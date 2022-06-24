@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.controllers;
+package com.in28minutes.rest.webservices.restfulwebservices.hello_world_project.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.in28minutes.rest.webservices.restfulwebservices.models.HelloWorldBean;
+import com.in28minutes.rest.webservices.restfulwebservices.hello_world_project.models.HelloWorldBean;
 
 @RestController
 public class HelloWorldController {
     @Autowired
     private MessageSource messageSource;
 
-    @GetMapping(path = "hello-world")
+    @GetMapping(path = "/hello-world")
     public String hellowWorld() {
         return "Hello World";
     }
@@ -50,7 +50,7 @@ public class HelloWorldController {
     // then enter abbreviation e.g nl, fr, eng from these file
     // names(messages_fr.properties).
     // Send the request.
-    @GetMapping(path = "hello-world-internationalized")
+    @GetMapping(path = "/hello-world-internationalized")
     public String hellowWorldInternationalized() {
 
         return messageSource.getMessage("good.morning.message", null,

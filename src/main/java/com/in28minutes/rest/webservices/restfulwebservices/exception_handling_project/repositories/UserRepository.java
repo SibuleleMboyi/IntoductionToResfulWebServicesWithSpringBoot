@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.repositories;
+package com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.repositories;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.in28minutes.rest.webservices.restfulwebservices.models.User;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.User;
 
 // This annotation is used to indicate that the class provides the mechanism for storage,
 // retrieval, update, delete and search operation on objects.

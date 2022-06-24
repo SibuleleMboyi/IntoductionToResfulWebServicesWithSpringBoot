@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.models;
+package com.in28minutes.rest.webservices.restfulwebservices.filtering_project.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

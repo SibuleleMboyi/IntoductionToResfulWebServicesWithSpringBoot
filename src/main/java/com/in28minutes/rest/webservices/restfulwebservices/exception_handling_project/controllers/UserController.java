@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.controllers;
+package com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.in28minutes.rest.webservices.restfulwebservices.exceptions.UserNotFoundException;
-import com.in28minutes.rest.webservices.restfulwebservices.models.User;
-import com.in28minutes.rest.webservices.restfulwebservices.repositories.UserRepository;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.User;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.UserNotFoundException;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.repositories.UserRepository;
 
 @RestController
 public class UserController {
