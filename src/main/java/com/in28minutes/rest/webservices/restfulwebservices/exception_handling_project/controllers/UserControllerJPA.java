@@ -21,6 +21,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.Post;
 import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.User;
 import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.models.UserNotFoundException;
+import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.repositories.PostRepository;
 import com.in28minutes.rest.webservices.restfulwebservices.exception_handling_project.repositories.UserRepositoryJPA;
 
 @RestController
@@ -28,6 +29,9 @@ public class UserControllerJPA {
 
     @Autowired
     private UserRepositoryJPA userRepositoryJPA;
+
+    @Autowired
+    private PostRepository postRepository;
 
     @GetMapping("/jpa/users")
     public List<User> getUsers() {
@@ -73,5 +77,23 @@ public class UserControllerJPA {
             throw new UserNotFoundException("id : " + id);
         }
         return userOptional.get().getPosts();
+    }
+
+    @PostMapping("/jpa/users/{id}/posts")
+    public ResponseEntity<User> createPost(@Valid @PathVariable int id, @RequestBody Post post) {
+
+        Optional<User> userOptional = userRepositoryJPA.findById(id);
+
+        if (!userOptional.isPresent()) {
+            throw new UserNotFoundException("id : " + id);
+        }
+
+        User user = userOptional.get();
+        post.setUser(user);
+        postRepository.save(post);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(post.getId()).toUri();
+        return ResponseEntity.created(location).build();
     }
 }

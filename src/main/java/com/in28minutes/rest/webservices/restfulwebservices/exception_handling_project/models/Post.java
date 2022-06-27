@@ -12,9 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Post {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
-    @GeneratedValue
     private String description;
 
     // Defines that data should be lazily fetched, i.e fetched on demand.
